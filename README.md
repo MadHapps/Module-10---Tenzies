@@ -20,9 +20,9 @@ GitHub CLI:
 
 **2.** Open VS Code in the location you want your project folder to be located in, press `` Ctrl + ` `` to open the terminal.
   
-**3.** Type the command below into the terminal, replace the `URL GOES HERE` with the url you copied:
+**3.** Type the command below into the terminal, replace `PROJECT NAME` with the name of your project(in lowercase) and the `GITHUB URL` with the url you copied:
 
-	gh repo create myrepo -p URL GOES HERE --public
+	gh repo create PROJECT NAME -p GITHUB URL --public
 
 
 **4.** Then, type `npm install`. Followed by `npm run dev` to generate a localhost link.
