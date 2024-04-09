@@ -24,7 +24,8 @@ GitHub CLI:
 
 	gh repo create PROJECT NAME -p GITHUB URL --public
 
+**4.** Your new repo is now created inside of your repositories list on github.com, using Github Desktop or otherwise, clone the new repo to your local machine and open it in VS Code.
 
-**4.** Then, type `npm install`. Followed by `npm run dev` to generate a localhost link.
+**5.** In VS Code terminal, type `npm install` followed by `npm run dev` to generate a localhost link.
 
-**5.** Start your project!
+**6.** Start your project! Don't forget to up the names in package.json & package-lock.json
