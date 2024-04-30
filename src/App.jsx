@@ -1,14 +1,44 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Die from "./components/Die";
+import { nanoid } from "nanoid";
 
 function App() {
-  const randomDieValueArray = () => Array.from({ length: 10 }, () => Math.floor(Math.random() * 6) + 1)
-  const [dice, setDice] = useState(randomDieValueArray)
-  const diceElements = dice.map((dieValue, index) => <Die key={index} value={dieValue} /> )
+  const [dice, setDice] = useState(randomDieValueArray());
+  const diceElements = dice.map((die) => (
+    <Die
+      key={die.id}
+      id={die.id}
+      value={die.value}
+      holdDie={() => holdDie(die.id)}
+      isHeld={die.isHeld}
+    />
+  ));
+
+  function randomDieValueArray() {
+    return Array.from({ length: 10 }, () => ({
+      id: nanoid(),
+      value: Math.ceil(Math.random() * 6),
+      isHeld: false,
+    }));
+  }
+
+  function holdDie(id) {
+    setDice((prevDice) =>
+      prevDice.map((die) =>
+        die.id === id ? { ...die, isHeld: !die.isHeld } : { ...die }
+      )
+    );
+  }
 
   function roll() {
-    setDice(randomDieValueArray)
+    setDice((prevDice) =>
+      prevDice.map((die) =>
+        die.isHeld
+          ? { ...die }
+          : { ...die, value: Math.ceil(Math.random() * 6) }
+      )
+    );
   }
 
   return (
@@ -20,9 +50,7 @@ function App() {
           current value between rolls.
         </h2>
       </section>
-      <ul className="die-wrapper">
-        {diceElements}
-      </ul>
+      <ul className="die-wrapper">{diceElements}</ul>
       <button onClick={roll}>Roll</button>
     </main>
   );

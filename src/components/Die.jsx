@@ -1,9 +1,12 @@
 /* eslint-disable react/prop-types */
-import "./die.css"
+import "./die.css";
 
-export default function Die({value}) {
+export default function Die({ value, holdDie, isHeld }) {
+  const className = isHeld ? "die isHeld" : "die";
 
-    return(
-        <li className="die">{value}</li>
-    )
+  return (
+    <li onClick={holdDie} className={className}>
+      {value}
+    </li>
+  );
 }
