@@ -4,7 +4,7 @@ import Die from "./components/Die";
 import { nanoid } from "nanoid";
 
 function App() {
-  const [game, setGame] = useState({clicks: 0, won: false})
+  const [game, setGame] = useState({ clicks: 0, won: false });
   const [dice, setDice] = useState(randomDieValueArray());
   const diceElements = dice.map((die) => (
     <Die
@@ -33,10 +33,10 @@ function App() {
   }
 
   function roll() {
-    setGame(prevGame => ({
+    setGame((prevGame) => ({
       prevGame,
-      clicks: prevGame.clicks++
-    }))
+      clicks: prevGame.clicks + 1,
+    }));
 
     setDice((prevDice) =>
       prevDice.map((die) =>
@@ -47,11 +47,11 @@ function App() {
     );
   }
 
-useEffect(() => {
-  const isWon = dice.every(die => die.value === dice[0].value)
-  const allHeld = dice.every(die => die.isHeld === dice[0].isHeld)
-  isWon && allHeld && console.log("YOU WON!!")
-}, [dice])
+  useEffect(() => {
+    const isWon = dice.every((die) => die.value === dice[0].value);
+    const allHeld = dice.every((die) => die.isHeld === dice[0].isHeld);
+    isWon && allHeld && console.log("YOU WON!!");
+  }, [dice]);
 
   return (
     <main>
