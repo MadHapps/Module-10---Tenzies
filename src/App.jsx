@@ -64,7 +64,7 @@ function App() {
   return (
     <main>
       {game.won && (
-        <Confetti wind={0.002} gravity={0.025} numberOfPieces={200} />
+        <Confetti wind={0.002} gravity={0.05} numberOfPieces={200} />
       )}
       <section className="title">
         <h1>Tenzies</h1>
