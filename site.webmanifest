@@ -1,0 +1,25 @@
+{
+    "theme_color": "#59e391",
+    "background_color": "#2EC6FE",
+    "icons": [
+      {
+        "src": "/android-chrome-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/android-chrome-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "orientation": "any",
+    "display": "standalone",
+    "dir": "auto",
+    "lang": "en-US",
+    "name": "Tenzies",
+    "short_name": "Tenzies",
+    "start_url": "https://module-10-tenzies-jp.pages.dev/",
+    "id": "https://module-10-tenzies-jp.pages.dev/"
+  }
+  
