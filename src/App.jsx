@@ -34,7 +34,7 @@ function App() {
 
   function roll() {
     setGame((prevGame) => ({
-      prevGame,
+      ...prevGame,
       clicks: prevGame.clicks + 1,
     }));
 
@@ -49,9 +49,16 @@ function App() {
 
   useEffect(() => {
     const isWon = dice.every((die) => die.value === dice[0].value);
-    const allHeld = dice.every((die) => die.isHeld === dice[0].isHeld);
-    isWon && allHeld && console.log("YOU WON!!");
+    const allDiceHeld = dice.every((die) => die.isHeld === dice[0].isHeld);
+    if (isWon && allDiceHeld) {
+      setGame((prevGame) => ({ ...prevGame, won: true }));
+    } else setGame((prevGame) => ({ ...prevGame, won: false }));
   }, [dice]);
+
+  useEffect(() => {
+    console.log(game)
+    game.won && console.log(`Good job! You won in ${game.clicks} clicks!`)
+  }, [game])
 
   return (
     <main>
